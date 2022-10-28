@@ -51,6 +51,11 @@ public class MainUserFrame extends javax.swing.JFrame {
         });
 
         jButton2.setText("Quản lý phòng");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Quản lý khách hàng");
 
@@ -106,6 +111,17 @@ public class MainUserFrame extends javax.swing.JFrame {
             Logger.getLogger(MainUserFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            new AllRoomFrame().setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

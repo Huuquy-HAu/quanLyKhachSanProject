@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Java/qlks/src/qlks/dao/UserDao.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/dao/RoomDao.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/modal/User.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/view/Login.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/modal/RoomAll.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/service/UserService.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/view/Room.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/view/MainUserFrame.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/view/ListUserFrame.java</file>
+            <file>file:/D:/Java/qlks/src/qlks/service/RoomService.java</file>
+        </group>
     </open-files>
 </project-private>

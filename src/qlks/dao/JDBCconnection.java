@@ -18,7 +18,7 @@ public class JDBCconnection {
     public static String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
 //localhost:<PORT>  databaseName=<Tên của database vừa tạo>
-    public static String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=quan_ly_khack_san;integratedSecurity=true;"
+    public static String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=QLKS;integratedSecurity=true;"
                                    + "encrypt=true;trustServerCertificate=true;";
 
 // Vẫn chừa trống, mặc dù không dùng
