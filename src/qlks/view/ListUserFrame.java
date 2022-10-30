@@ -4,6 +4,7 @@
  */
 package qlks.view;
 
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -11,7 +12,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import qlks.service.UserService;
 import javax.swing.table.*;
+import qlks.dao.JDBCconnection;
 import qlks.modal.User;
+import java.sql.*;
 
 /**
  *
@@ -24,11 +27,29 @@ public class ListUserFrame extends javax.swing.JFrame {
     /**
      * Creates new form ListUserFrame
      */
+
+    private java.sql.Connection connection;
+
+    public java.sql.Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(java.sql.Connection conn) {
+        this.connection = conn;
+    }
+
+    public java.sql.Connection getConnect() throws ClassNotFoundException, SQLException {
+        Class.forName(JDBCconnection.driverName);
+        connection = DriverManager.getConnection(JDBCconnection.dbURL, JDBCconnection.dbUser, JDBCconnection.dbPass);
+        System.out.println("CONNECTTED!");
+        return connection;
+    }
+
     public ListUserFrame() throws ClassNotFoundException, SQLException {
         initComponents();
         userService = new UserService();
 
-        defaultTableModel = new DefaultTableModel(){
+        defaultTableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -38,25 +59,26 @@ public class ListUserFrame extends javax.swing.JFrame {
         userTable.getTableHeader().setResizingAllowed(false);
         defaultTableModel.addColumn("ID");
         defaultTableModel.addColumn("Họ và tên");
-        defaultTableModel.addColumn("Giới tính");
+        defaultTableModel.addColumn("Địa chỉ");
         defaultTableModel.addColumn("Số điện thoại");
-        defaultTableModel.addColumn("Loại Phòng");
-        defaultTableModel.addColumn("Giá Phòng");
-        defaultTableModel.addColumn("Tình trạng");
+        defaultTableModel.addColumn("Giới tính");
+        defaultTableModel.addColumn("Phòng");
 
         setTableData(userService.getAllUsers());
-        
+
 //        for(User user: users){
 //            defaultTableModel.addRow(new Object[] {user.getId(),user.getName(),user.getGioiTinh(),user.getPhone(),
 //            user.getLoaiPhong(),user.getGiaPhong(),user.getTinhTrang()});
 //        }
     }
-    private void setTableData(List<User> users){
-        for(User user: users){
-            defaultTableModel.addRow(new Object[] {user.getId(),user.getName(),user.getGioiTinh(),user.getPhone(),
-            user.getLoaiPhong(),user.getGiaPhong(),user.getTinhTrang()});
+
+    private void setTableData(List<User> users) {
+        for (User user : users) {
+            defaultTableModel.addRow(new Object[]{user.getId(), user.getName(), user.getAddress(), user.getPhone(),
+                user.getGioiTinh(), user.getRoom()});
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,6 +141,11 @@ public class ListUserFrame extends javax.swing.JFrame {
         editButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/edit-file-icon.png"))); // NOI18N
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         exitButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
@@ -229,21 +256,31 @@ public class ListUserFrame extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
-        new AddUserFrame().setVisible(true);
+        new newCustomer().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
         int row = userTable.getSelectedRow();
-        if(row == -1){
-            JOptionPane.showMessageDialog(ListUserFrame.this, "Vui lòng chọn dòng muốn xóa", "Loi", JOptionPane.ERROR_MESSAGE);
+        if (row == -1) {
+            JOptionPane.showMessageDialog(ListUserFrame.this, "Vui lòng chọn người dùng muốn xóa", "Loi", JOptionPane.ERROR_MESSAGE);
         } else {
             int confirm = JOptionPane.showConfirmDialog(ListUserFrame.this, "Bạn có chắc chắn muốn xóa không?");
-            if (confirm == JOptionPane.YES_OPTION){
+            if (confirm == JOptionPane.YES_OPTION) {
                 int userId = Integer.valueOf(String.valueOf(userTable.getValueAt(row, 0)));
+                String useroom = String.valueOf(String.valueOf(userTable.getValueAt(row, 5)));
                 try {
-                    userService.deleteUser(userId);
+                    connection = getConnect();
+
+                    String sql = "delete from Khach_Hang where id = '" + userId + "'" + " update Loai_Phong set tinhTrang = N'Trống', cleanStatus= N'Chưa vệ sinh'  where MaPhong =N'" + useroom + "'";
+
+                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+                    int rs = preparedStatement.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Xóa khách hàng thành công");
+//                    userService.deleteUser(userId);
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException ex) {
@@ -272,6 +309,26 @@ public class ListUserFrame extends javax.swing.JFrame {
             Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+
+        int row = userTable.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(ListUserFrame.this, "Vui lòng chọn người dùng muốn sửa", "Loi", JOptionPane.ERROR_MESSAGE);
+        } else {
+            int userId = Integer.valueOf(String.valueOf(userTable.getValueAt(row, 0)));
+            
+            try {
+                new EditUserFrame(userId).setVisible(true);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.dispose();
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
 
     /**
      * @param args the command line arguments

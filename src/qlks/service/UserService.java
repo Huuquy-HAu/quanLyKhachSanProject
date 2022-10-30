@@ -23,13 +23,14 @@ public class UserService {
     public List<User> getAllUsers() throws ClassNotFoundException, SQLException{
         return userDao.getAllUsers();
     }
-    
-    public void addUser(User user) throws ClassNotFoundException, SQLException{
-        userDao.addUser(user);
-    }
+ 
     
     public void deleteUser(int id) throws ClassNotFoundException, SQLException{
         userDao.deleteUser(id);
+    }
+    
+    public User getUserById(int id) throws ClassNotFoundException, SQLException {
+        return userDao.getUserById(id);
     }
 
 }

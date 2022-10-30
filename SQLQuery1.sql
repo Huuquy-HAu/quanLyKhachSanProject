@@ -1,25 +1,40 @@
-﻿create database quan_ly_khack_san
+﻿create database QLKS
 
-use quan_ly_khack_san
 
-create table khack_hang(
-id int identity,
-UserName nvarchar(50),
-GioiTinh nvarchar(10),
-phone nvarchar(15),
-loai_phong nvarchar(20),
-gia_phong nvarchar(20),
-tinh_trang nvarchar(20),
-primary key(id)
+use QLKS
+
+create table Login(
+	username nvarchar(20),
+	passwordd nvarchar(25),
+	primary key (username)
 )
 
-insert into khack_hang(UserName,GioiTinh,phone,loai_phong,gia_phong,tinh_trang)
-values (N'Nguyễn Văn A',N'Nam', '0906609906', N'Thường', N'2000000', N'Đã trả phòng'),
-(N'Dương Văn B',N'Nam', '0906609906', N'Thương gia', N'5000000', N'Chưa nhận phòng'),
-(N'Nguyễn Thị C',N'Nữ', '0906609906', N'VIP', N'7000000', N'Đang thuê'),
-(N'Nguyễn Văn A',N'Nam', '0906609906', N'Thường', N'2000000', N'Đã trả phòng')
+insert into Login values('admin', '12345');
+
+select * from Login
 
 
-select * from khack_hang
+create table Khach_Hang (
+	ID int identity,
+	TenKH nvarchar(50) not null,
+	Diachi nvarchar(50) ,
+	SDT nvarchar(11),
+	gender nvarchar(15),
+	room nvarchar(10)
+)
 
-drop table khack_hang
+select * from Khach_Hang where id = 7
+
+
+create table Loai_Phong(
+	MaPhong nvarchar(50) primary key,
+	tinhTrang nvarchar(50),
+	cleanStatus nvarchar(50),
+	bedType nvarchar(50),
+	Gia varchar(50),
+)
+
+select MaPhong from Loai_Phong where tinhTrang = N'Trống' and cleanStatus = N'Đã vệ sinh'
+
+select * from Loai_Phong
+update Loai_Phong set tinhTrang = N'Trống' , cleanStatus= N'Chưa vệ sinh' where MaPhong =N'101'

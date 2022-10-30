@@ -11,23 +11,21 @@ package qlks.modal;
 public class User {
     private int id;
     private String name;
-    private  String gioiTinh;
+    private String Address;
     private String phone;
-    private  String loaiPhong;
-    private String giaPhong;
-    private String tinhTrang;
+    private  String gioiTinh;
+    private  String room;
 
     public User() {
     }
 
-    public User(int id, String name, String gioiTinh, String phone, String loaiPhong, String giaPhong, String tinhTrang) {
+    public User(int id, String name, String Address, String phone, String gioiTinh, String room) {
         this.id = id;
         this.name = name;
-        this.gioiTinh = gioiTinh;
+        this.Address = Address;
         this.phone = phone;
-        this.loaiPhong = loaiPhong;
-        this.giaPhong = giaPhong;
-        this.tinhTrang = tinhTrang;
+        this.gioiTinh = gioiTinh;
+        this.room = room;
     }
 
     public int getId() {
@@ -46,12 +44,12 @@ public class User {
         this.name = name;
     }
 
-    public String getGioiTinh() {
-        return gioiTinh;
+    public String getAddress() {
+        return Address;
     }
 
-    public void setGioiTinh(String gioiTinh) {
-        this.gioiTinh = gioiTinh;
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
 
     public String getPhone() {
@@ -62,29 +60,22 @@ public class User {
         this.phone = phone;
     }
 
-    public String getLoaiPhong() {
-        return loaiPhong;
+    public String getGioiTinh() {
+        return gioiTinh;
     }
 
-    public void setLoaiPhong(String loaiPhong) {
-        this.loaiPhong = loaiPhong;
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh = gioiTinh;
     }
 
-    public String getGiaPhong() {
-        return giaPhong;
+    public String getRoom() {
+        return room;
     }
 
-    public void setGiaPhong(String giaPhong) {
-        this.giaPhong = giaPhong;
+    public void setRoom(String room) {
+        this.room = room;
     }
 
-    public String getTinhTrang() {
-        return tinhTrang;
-    }
-
-    public void setTinhTrang(String tinhTrang) {
-        this.tinhTrang = tinhTrang;
-    }
     
     
 }

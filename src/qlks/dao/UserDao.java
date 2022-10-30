@@ -40,7 +40,7 @@ public class UserDao {
 
         connection = getConnect();
 
-        String sql = "SELECT * FROM khack_hang";
+        String sql = "SELECT * FROM Khach_Hang";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -49,13 +49,13 @@ public class UserDao {
 
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getInt("id"));
-                user.setName(rs.getString("UserName"));
-                user.setGioiTinh(rs.getString("GioiTinh"));
-                user.setPhone(rs.getString("phone"));
-                user.setLoaiPhong(rs.getString("loai_phong"));
-                user.setGiaPhong(rs.getString("gia_phong"));
-                user.setTinhTrang(rs.getString("tinh_trang"));
+                user.setId(rs.getInt("ID"));
+                user.setName(rs.getString("TenKH"));
+                user.setAddress(rs.getString("Diachi"));
+                user.setPhone(rs.getString("SDT"));
+                user.setGioiTinh(rs.getString("gender"));
+                user.setRoom(rs.getString("room"));
+                
                 users.add(user);
 
             }
@@ -66,28 +66,38 @@ public class UserDao {
         return users;
     }
 
-    public void addUser(User user) throws ClassNotFoundException, SQLException {
+    
+    public User getUserById(int id) throws ClassNotFoundException, SQLException {
+
         connection = getConnect();
 
-        String sql = "INSERT INTO khack_hang(UserName,GioiTinh,phone,loai_phong,gia_phong,tinh_trang) VALUES(?,?,?,?,?,?)";
+        String sql = "SELECT * FROM Khach_Hang where ID = ?";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
 
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getGioiTinh());
-            preparedStatement.setString(3, user.getPhone());
-            preparedStatement.setString(4, user.getLoaiPhong());
-            preparedStatement.setString(5, user.getGiaPhong());
-            preparedStatement.setString(6, user.getTinhTrang());
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("ID"));
+                user.setName(rs.getString("TenKH"));
+                user.setAddress(rs.getString("Diachi"));
+                user.setPhone(rs.getString("SDT"));
+                user.setGioiTinh(rs.getString("gender"));
+                user.setRoom(rs.getString("room"));
+                
+                return user;
 
-            int rs = preparedStatement.executeUpdate();
-            System.out.println(rs);
-        } catch (SQLException e) {
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
+    
     public void updateUser(User user) throws ClassNotFoundException, SQLException {
         connection = getConnect();
 
@@ -97,9 +107,9 @@ public class UserDao {
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getGioiTinh());
             preparedStatement.setString(3, user.getPhone());
-            preparedStatement.setString(4, user.getLoaiPhong());
-            preparedStatement.setString(5, user.getGiaPhong());
-            preparedStatement.setString(6, user.getTinhTrang());
+//            preparedStatement.setString(4, user.getLoaiPhong());
+//            preparedStatement.setString(5, user.getGiaPhong());
+//            preparedStatement.setString(6, user.getTinhTrang());
             preparedStatement.setInt(7, user.getId());
 
             int rs = preparedStatement.executeUpdate();

@@ -212,37 +212,37 @@ public class AddUserFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        // TODO add your handling code here:
-        user.setName(nameTextField.getText());
-        String gender ="";
-        if(maleRadioButton.isSelected()){
-            gender = "Nam";
-        }
-        if(femaleRadioButton.isSelected()){
-            gender = "Nu";
-        }
-        user.setGioiTinh(gender);
-        user.setPhone(phoneTextField.getText());
-        String loaiphong = String.valueOf(typeroomComboBox.getSelectedItem());
-        user.setLoaiPhong(loaiphong);
-        user.setGiaPhong(costTextField.getText());
-        String tinhtrang = String.valueOf(statusComboBox.getSelectedItem());
-        user.setTinhTrang(tinhtrang);
-        try {
-            userService.addUser(user);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AddUserFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(AddUserFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.dispose();
-        try {
-            new ListUserFrame().setVisible(true);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AddUserFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(AddUserFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        // TODO add your handling code here:
+//        user.setName(nameTextField.getText());
+//        String gender ="";
+//        if(maleRadioButton.isSelected()){
+//            gender = "Nam";
+//        }
+//        if(femaleRadioButton.isSelected()){
+//            gender = "Nu";
+//        }
+//        user.setGioiTinh(gender);
+//        user.setPhone(phoneTextField.getText());
+//        String loaiphong = String.valueOf(typeroomComboBox.getSelectedItem());
+//        user.setLoaiPhong(loaiphong);
+//        user.setGiaPhong(costTextField.getText());
+//        String tinhtrang = String.valueOf(statusComboBox.getSelectedItem());
+//        user.setTinhTrang(tinhtrang);
+//        try {
+//            userService.addUser(user);
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(AddUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(AddUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        this.dispose();
+//        try {
+//            new ListUserFrame().setVisible(true);
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(AddUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(AddUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void femaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioButtonActionPerformed

@@ -66,6 +66,27 @@ public class AllRoomDao {
         return allRooms;
     }
     
-    
+    public List<AllRoom> getAllMP() throws ClassNotFoundException, SQLException {
+        List<AllRoom> allMPs = new ArrayList<AllRoom>();
+        
+        connection = getConnect();
+        
+        String sql = "SELECT * FROM Loai_Phong where tinhTrang = N'Trống'";
+        
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            while (rs.next()) {                
+                AllRoom allRoom = new AllRoom();
+                allRoom.setMaPhong(rs.getString("MaPhong"));
+                
+                allMPs.add(allRoom);
+            }
+        } catch (Exception e) {
+        }
+        return allMPs;
+    }
     
 }
