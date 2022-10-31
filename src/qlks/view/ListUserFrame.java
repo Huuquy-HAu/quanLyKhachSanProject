@@ -22,6 +22,7 @@ import java.sql.*;
  */
 public class ListUserFrame extends javax.swing.JFrame {
 
+    private User user;
     UserService userService;
     DefaultTableModel defaultTableModel;
     /**
@@ -99,6 +100,7 @@ public class ListUserFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnCheckOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 800));
@@ -182,28 +184,23 @@ public class ListUserFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCheckOut.setText("Check Out");
+        btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(editButton)
-                        .addGap(60, 60, 60)
-                        .addComponent(deleteButton)
-                        .addGap(58, 58, 58)
-                        .addComponent(exitButton)
-                        .addGap(33, 33, 33))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(96, 96, 96))))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(96, 96, 96))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -218,6 +215,18 @@ public class ListUserFrame extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(0, 46, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(editButton)
+                .addGap(60, 60, 60)
+                .addComponent(deleteButton)
+                .addGap(58, 58, 58)
+                .addComponent(exitButton)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +240,8 @@ public class ListUserFrame extends javax.swing.JFrame {
                     .addComponent(exitButton)
                     .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteButton))
+                    .addComponent(deleteButton)
+                    .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,7 +328,7 @@ public class ListUserFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(ListUserFrame.this, "Vui lòng chọn người dùng muốn sửa", "Loi", JOptionPane.ERROR_MESSAGE);
         } else {
             int userId = Integer.valueOf(String.valueOf(userTable.getValueAt(row, 0)));
-            
+
             try {
                 new EditUserFrame(userId).setVisible(true);
             } catch (ClassNotFoundException ex) {
@@ -329,6 +339,38 @@ public class ListUserFrame extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_editButtonActionPerformed
+
+    private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
+        // TODO add your handling code here:
+
+        int row = userTable.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(ListUserFrame.this, "Vui lòng chọn người dùng muốn Check Out", "Loi", JOptionPane.ERROR_MESSAGE);
+        } else {
+            int userId = Integer.valueOf(String.valueOf(userTable.getValueAt(row, 0)));
+            int confirm = JOptionPane.showConfirmDialog(ListUserFrame.this, "Bạn có chắc chắn muốn Check Out Không?");
+            if (confirm == JOptionPane.YES_OPTION) {
+
+                try {
+                    user = new User();
+                    userService = new UserService();
+                    user = userService.getUserById(userId);
+                    
+                    connection = getConnect();
+                    String sql = "insert into KH_CheckOut values(N'" + user.getName() + "',N'" + user.getAddress() + "',N'" + user.getPhone() + "',N'" + user.getGioiTinh() + "','" + user.getRoom() + "')" + " update Loai_Phong set tinhTrang = N'Trống', cleanStatus = N'Bẩn' where MaPhong =N'" + user.getRoom() + "'" + "delete from Khach_Hang where id = '" + userId + "'";
+
+                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+                    int rs = preparedStatement.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Check Out thành công");
+                } catch (Exception e) {
+                }
+
+            }
+
+        }
+    }//GEN-LAST:event_btnCheckOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,6 +413,7 @@ public class ListUserFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton btnCheckOut;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton exitButton;

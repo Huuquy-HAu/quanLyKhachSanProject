@@ -20,13 +20,14 @@ import qlks.service.UserService;
  * @author Admin
  */
 public class EditUserFrame extends javax.swing.JFrame {
+
     private User user;
     UserService userService;
     /**
      * Creates new form EditUserFrame
      */
-    
-        private java.sql.Connection connection;
+
+    private java.sql.Connection connection;
 
     public java.sql.Connection getConnection() {
         return connection;
@@ -43,14 +44,15 @@ public class EditUserFrame extends javax.swing.JFrame {
         return connection;
     }
     String roomDelete;
+
     public EditUserFrame(int userId) throws ClassNotFoundException, SQLException {
         user = new User();
         userService = new UserService();
         user = userService.getUserById(userId);
         initComponents();
-        
+
         roomDelete = user.getRoom();
-        
+
         inputID.setText(String.valueOf(user.getId()));
         inputName.setText(user.getName());
         inputAddress.setText(user.getAddress());
@@ -228,8 +230,8 @@ public class EditUserFrame extends javax.swing.JFrame {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        
-         try {
+
+        try {
             // TODO add your handling code here:
             String id = inputID.getText();
             String name = inputName.getText();
@@ -237,31 +239,30 @@ public class EditUserFrame extends javax.swing.JFrame {
             String phone = inputPhone.getText();
             String gender = (String) inputGender.getSelectedItem();
             String room = (String) jComboBox1.getSelectedItem();
-            
+
             connection = getConnect();
 
-            String sql = "update Khach_Hang set TenKH = N'"+name+"' , Diachi= N'"+addr+"', SDT= N'"+phone+"', gender = N'"+gender+"', room = N'"+room+"' where ID ="+id+"" + " update Loai_Phong set tinhTrang = N'Đang thuê' where MaPhong =N'"+room+"'" +" update Loai_Phong set tinhTrang = N'Trống' where MaPhong =N'"+roomDelete+"'";
+            String sql = "update Khach_Hang set TenKH = N'" + name + "' , Diachi= N'" + addr + "', SDT= N'" + phone + "', gender = N'" + gender + "', room = N'" + room + "' where ID =" + id + "" + " update Loai_Phong set tinhTrang = N'Đang thuê' where MaPhong =N'" + room + "'" + " update Loai_Phong set tinhTrang = N'Trống' where MaPhong =N'" + roomDelete + "'";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-             int rs = preparedStatement.executeUpdate();
-      
-             JOptionPane.showMessageDialog(null, "Sửa thành công thông tin");
-             new ListUserFrame().setVisible(true);
-             this.dispose();
+            int rs = preparedStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Sửa thành công thông tin");
+            new ListUserFrame().setVisible(true);
+            this.dispose();
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(newCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(newCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheck;

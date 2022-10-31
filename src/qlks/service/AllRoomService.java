@@ -23,9 +23,8 @@ public class AllRoomService {
     public List<AllRoom> getAllRooms() throws ClassNotFoundException, SQLException {
         return allRoomDao.getAllRooms();
     }
-    
-    public List<AllRoom> getAllMP() throws ClassNotFoundException, SQLException {
-        return allRoomDao.getAllMP();
+    public AllRoom getRoomByID(String MP) throws ClassNotFoundException, SQLException {
+        return allRoomDao.getRoomByID(MP);
     }
     
     

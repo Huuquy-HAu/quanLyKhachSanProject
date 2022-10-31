@@ -14,10 +14,8 @@ import qlks.modal.AllRoom;
  *
  * @author Admin
  */
-
-
 public class AllRoomDao {
-    
+
     private java.sql.Connection connection;
 
     public java.sql.Connection getConnection() {
@@ -35,14 +33,13 @@ public class AllRoomDao {
         return connection;
     }
 
-    
-    public List<AllRoom> getAllRooms() throws ClassNotFoundException, SQLException{
+    public List<AllRoom> getAllRooms() throws ClassNotFoundException, SQLException {
         List<AllRoom> allRooms = new ArrayList<AllRoom>();
-        
+
         connection = getConnect();
-        
+
         String sql = "SELECT * FROM Loai_Phong";
-        
+
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -55,7 +52,7 @@ public class AllRoomDao {
                 allRoom.setCleanStatus(rs.getString("cleanStatus"));
                 allRoom.setBedType(rs.getString("bedType"));
                 allRoom.setGia(rs.getString("Gia"));
-                
+
                 allRooms.add(allRoom);
 
             }
@@ -65,28 +62,32 @@ public class AllRoomDao {
         }
         return allRooms;
     }
-    
-    public List<AllRoom> getAllMP() throws ClassNotFoundException, SQLException {
-        List<AllRoom> allMPs = new ArrayList<AllRoom>();
-        
+
+    public AllRoom getRoomByID(String MP) throws ClassNotFoundException, SQLException {
+
         connection = getConnect();
-        
-        String sql = "SELECT * FROM Loai_Phong where tinhTrang = N'Trống'";
-        
+
+        String sql = "SELECT * FROM Loai_Phong where MaPhong = N'"+MP+"'";
+
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            
             ResultSet rs = preparedStatement.executeQuery();
-            
-            while (rs.next()) {                
+
+            while (rs.next()) {
                 AllRoom allRoom = new AllRoom();
                 allRoom.setMaPhong(rs.getString("MaPhong"));
-                
-                allMPs.add(allRoom);
+                allRoom.setTinhTrang(rs.getString("tinhTrang"));
+                allRoom.setCleanStatus(rs.getString("cleanStatus"));
+                allRoom.setBedType(rs.getString("bedType"));
+                allRoom.setGia(rs.getString("Gia"));
+
+                return allRoom;
             }
+
         } catch (Exception e) {
+            e.printStackTrace();
         }
-        return allMPs;
+        return null;
     }
-    
+
 }

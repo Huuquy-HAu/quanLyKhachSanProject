@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import qlks.service.AllRoomService;
 import qlks.modal.AllRoom;
@@ -44,7 +45,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
 
     private void setTableDataRoom(List<AllRoom> allRooms) {
         for (AllRoom allRoom : allRooms) {
-            defaultTableModel.addRow(new Object[]{allRoom.getMaPhong(), allRoom.getTinhTrang(),allRoom.getBedType(), allRoom.getCleanStatus(), allRoom.getGia()});
+            defaultTableModel.addRow(new Object[]{allRoom.getMaPhong(), allRoom.getTinhTrang(), allRoom.getBedType(), allRoom.getCleanStatus(), allRoom.getGia()});
         }
     }
 
@@ -60,6 +61,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRooms = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        btnEditRoom = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản Lý KS - Tất cả các phòng ");
@@ -85,26 +87,38 @@ public class AllRoomFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditRoom.setText("Sửa phòng");
+        btnEditRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditRoomActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(97, 97, 97)
+                .addComponent(btnEditRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -115,6 +129,23 @@ public class AllRoomFrame extends javax.swing.JFrame {
         new AddRoomFrame().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnEditRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditRoomActionPerformed
+        // TODO add your handling code here:
+        int row = tableRooms.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn phòng muốn thao tác");
+        }else {
+            String MP = String.valueOf(tableRooms.getValueAt(row, 0));
+            
+            try {
+                new EditRoomFrame(MP).setVisible(true);
+                this.dispose();
+            } catch (Exception e) {
+            }
+        }
+
+    }//GEN-LAST:event_btnEditRoomActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,6 +189,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditRoom;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableRooms;

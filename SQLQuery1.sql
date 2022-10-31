@@ -38,3 +38,17 @@ select MaPhong from Loai_Phong where tinhTrang = N'Trống' and cleanStatus = N'
 
 select * from Loai_Phong
 update Loai_Phong set tinhTrang = N'Trống' , cleanStatus= N'Chưa vệ sinh' where MaPhong =N'101'
+
+
+
+create table KH_CheckOut(
+	ID int identity,
+	TenKH nvarchar(50) not null,
+	Diachi nvarchar(50) ,
+	SDT nvarchar(11),
+	gender nvarchar(15),
+	room nvarchar(10)
+)
+
+
+select * from KH_CheckOut
