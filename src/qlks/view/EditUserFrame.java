@@ -88,12 +88,20 @@ public class EditUserFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+<<<<<<< HEAD
         setPreferredSize(new java.awt.Dimension(1050, 650));
+=======
+        setPreferredSize(new java.awt.Dimension(1000, 600));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 24)); // NOI18N
         jLabel1.setText("Sửa Thông Tin Khách Hàng");
+<<<<<<< HEAD
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 13, 278, 58));
+=======
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 279, 58));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel2.setText("ID:");
@@ -106,6 +114,7 @@ public class EditUserFrame extends javax.swing.JFrame {
                 inputIDActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(inputID, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 89, 71, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
@@ -122,12 +131,34 @@ public class EditUserFrame extends javax.swing.JFrame {
         inputAddress.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         getContentPane().add(inputAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 179, 176, -1));
 
+=======
+        getContentPane().add(inputID, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 89, 71, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel3.setText("Tên Khách Hàng:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 137, 100, -1));
+
+        inputName.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        getContentPane().add(inputName, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 134, 176, -1));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel4.setText("Địa chỉ :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 179, 80, -1));
+
+        inputAddress.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        getContentPane().add(inputAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 179, 176, -1));
+
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
         jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel5.setText("Số điện thoại :");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 227, -1, -1));
 
         inputPhone.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+<<<<<<< HEAD
         getContentPane().add(inputPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 224, 176, -1));
+=======
+        getContentPane().add(inputPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 224, 176, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel6.setText("Giới tính:");
@@ -135,14 +166,22 @@ public class EditUserFrame extends javax.swing.JFrame {
 
         inputGender.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         inputGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
+<<<<<<< HEAD
         getContentPane().add(inputGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 269, 120, -1));
+=======
+        getContentPane().add(inputGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 269, 120, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel7.setText("Phòng:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 317, 67, -1));
 
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+<<<<<<< HEAD
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 314, 120, -1));
+=======
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 314, 120, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         btnCheck.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         btnCheck.setText("Kiểm tra");
@@ -151,7 +190,11 @@ public class EditUserFrame extends javax.swing.JFrame {
                 btnCheckActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(btnCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 314, 103, -1));
+=======
+        getContentPane().add(btnCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 314, 103, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         btnSubmit.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         btnSubmit.setText("Sửa thông tin");
@@ -160,10 +203,20 @@ public class EditUserFrame extends javax.swing.JFrame {
                 btnSubmitActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 387, 130, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/190792_people_720x720.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -20, -1, 700));
+=======
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 406, 130, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/user_edit.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        jLabel8.setMaximumSize(new java.awt.Dimension(512, 512));
+        jLabel8.setPreferredSize(new java.awt.Dimension(512, 512));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 470, 510));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -230,6 +283,7 @@ public class EditUserFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheck;

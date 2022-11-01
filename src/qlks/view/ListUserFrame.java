@@ -100,12 +100,21 @@ public class ListUserFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+<<<<<<< HEAD
         btnCheckOut = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(830, 550));
         setSize(new java.awt.Dimension(1000, 700));
+=======
+        jLabel3 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(830, 680));
+        setSize(new java.awt.Dimension(0, 0));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userTable.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
@@ -125,6 +134,7 @@ public class ListUserFrame extends javax.swing.JFrame {
         userTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(userTable);
 
+<<<<<<< HEAD
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 251, 818, 210));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -135,8 +145,20 @@ public class ListUserFrame extends javax.swing.JFrame {
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 58, -1, -1));
+=======
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 231, 818, 401));
 
-        addButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(102, 153, 0));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Danh sách khách hàng");
+        jLabel1.setToolTipText("");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 17, -1, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
+
+        addButton.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/Actions-contact-new-icon (1).png"))); // NOI18N
         addButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, java.awt.Color.lightGray));
         addButton.setMaximumSize(new java.awt.Dimension(262, 263));
@@ -146,9 +168,13 @@ public class ListUserFrame extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 109, -1, -1));
+=======
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 103, 130, 41));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
-        editButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        editButton.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/edit-file-icon.png"))); // NOI18N
         editButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, java.awt.Color.lightGray));
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -156,9 +182,13 @@ public class ListUserFrame extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 109, 55, 55));
+=======
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 103, 130, 41));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
-        exitButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        exitButton.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
         exitButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, java.awt.Color.lightGray));
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -166,9 +196,13 @@ public class ListUserFrame extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 109, -1, -1));
+=======
+        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(654, 103, 130, 41));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
-        deleteButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        deleteButton.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/Actions-view-sort-ascending-icon.png"))); // NOI18N
         deleteButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, java.awt.Color.lightGray));
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +210,11 @@ public class ListUserFrame extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 109, -1, -1));
+=======
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 103, 130, 41));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         jTextField1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +222,7 @@ public class ListUserFrame extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 212, 369, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
@@ -194,13 +233,27 @@ public class ListUserFrame extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jButton1.setText("Tìm kiếm");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 212, -1, -1));
+=======
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 195, 369, -1));
 
-        jButton2.setText("refesh");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Tìm theo tên hoặc số điện thoại:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 196, 217, -1));
+
+        jButton1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jButton1.setText("Tìm kiếm");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 192, -1, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
+
+        jButton2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jButton2.setText("Refresh");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 19, -1, -1));
 
         btnCheckOut.setText("Check Out");
@@ -214,6 +267,14 @@ public class ListUserFrame extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/luxury-5-star-hotels-kathmandu-thamel-251085752.jpeg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, -80, -1, -1));
+=======
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 17, -1, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/hotel-dubai.jpeg"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(999990, 999990));
+        jLabel3.setPreferredSize(new java.awt.Dimension(1000, 1000));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -80, -1, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

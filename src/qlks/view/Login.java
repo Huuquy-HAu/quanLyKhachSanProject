@@ -64,6 +64,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý khách sạn - Đăng Nhập");
+<<<<<<< HEAD
         setBackground(new java.awt.Color(51, 51, 51));
         setBounds(new java.awt.Rectangle(400, 250, 0, 0));
         setPreferredSize(new java.awt.Dimension(750, 400));
@@ -79,6 +80,25 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel2.setText("Password");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
+=======
+        setPreferredSize(new java.awt.Dimension(580, 300));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel1.setText("Username");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 111, 89, -1));
+
+        inputUserName.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        getContentPane().add(inputUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 108, 224, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel2.setText("Password");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 164, -1, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         inputPassWord.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         inputPassWord.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +106,7 @@ public class Login extends javax.swing.JFrame {
                 inputPassWordActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(inputPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 224, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 24)); // NOI18N
@@ -95,16 +116,39 @@ public class Login extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+=======
+        getContentPane().add(inputPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 161, 224, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 26)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel3.setText("Trang đăng nhập hệ thống");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 280, 48));
+
+        jButton1.setBackground(new java.awt.Color(153, 204, 255));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 102, 102));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
         jButton1.setText("Đăng Nhập");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 115, 34));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/movieposter.jpeg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
+=======
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 115, 30));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/luxury-5-star-hotels-kathmandu-thamel-251085752.jpeg"))); // NOI18N
+        jLabel4.setMaximumSize(new java.awt.Dimension(932876, 3434523));
+        jLabel4.setPreferredSize(new java.awt.Dimension(600, 600));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -170, -1, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

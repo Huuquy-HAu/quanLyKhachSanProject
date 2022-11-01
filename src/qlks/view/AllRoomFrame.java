@@ -61,15 +61,25 @@ public class AllRoomFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRooms = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+<<<<<<< HEAD
         btnEditRoom = new javax.swing.JButton();
+=======
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản Lý KS - Tất cả các phòng ");
+<<<<<<< HEAD
         setPreferredSize(new java.awt.Dimension(860, 450));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableRooms.setFont(new java.awt.Font(".SF NS Text", 2, 18)); // NOI18N
+=======
+        setPreferredSize(new java.awt.Dimension(870, 500));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tableRooms.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
         tableRooms.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -84,7 +94,11 @@ public class AllRoomFrame extends javax.swing.JFrame {
         tableRooms.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tableRooms);
 
+<<<<<<< HEAD
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 161, 861, 251));
+=======
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 849, 220));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jButton1.setText("Thêm phòng mới");
@@ -93,6 +107,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 34));
 
         btnEditRoom.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
@@ -107,6 +122,13 @@ public class AllRoomFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 28)); // NOI18N
         jLabel1.setText("Danh sách phòng");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 33, -1, -1));
+=======
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 160, 34));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/1920x1080_FourSeasonsLasVegas.jpeg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-750, -280, -1, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -68,11 +68,20 @@ public class newCustomer extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+<<<<<<< HEAD
         setPreferredSize(new java.awt.Dimension(950, 550));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, -1, -1));
+=======
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1000, 600));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 405, -1, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jButton1.setText("Kiểm tra");
@@ -81,6 +90,7 @@ public class newCustomer extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 24)); // NOI18N
@@ -90,6 +100,17 @@ public class newCustomer extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel2.setText("Họ và Tên : ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 96, -1));
+=======
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 405, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel1.setText("Thêm Khách Hàng ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 16, -1, 69));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel2.setText("Họ và Tên : ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 112, 96, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         inputName.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         inputName.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +118,7 @@ public class newCustomer extends javax.swing.JFrame {
                 inputNameActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(inputName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 280, 33));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
@@ -124,6 +146,35 @@ public class newCustomer extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel6.setText("Phòng");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
+=======
+        getContentPane().add(inputName, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 106, 203, 33));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel3.setText("Địa chỉ :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 186, 96, -1));
+
+        inputAddr.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        getContentPane().add(inputAddr, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 180, 203, 34));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel4.setText("Số điện thoại");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 259, -1, -1));
+
+        inputPhone.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        getContentPane().add(inputPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 251, 203, 37));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel5.setText("Giới tính");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 333, -1, -1));
+
+        inputGender.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        inputGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
+        getContentPane().add(inputGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 330, 125, -1));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel6.setText("Phòng");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 408, 66, -1));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jButton2.setText("Thêm ");
@@ -132,10 +183,22 @@ public class newCustomer extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 148, 36));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/check-in-khach-san-bang-tieng-anh-1.jpeg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, -1));
+=======
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 484, 100, 36));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/user_add.png"))); // NOI18N
+        jLabel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(153, 153, 153)));
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel7.setMaximumSize(new java.awt.Dimension(99999, 99999));
+        jLabel7.setPreferredSize(new java.awt.Dimension(520, 520));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 510, 500));
+>>>>>>> 17260d41ec700006680a51565eab507a552bc108
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
