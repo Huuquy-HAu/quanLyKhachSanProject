@@ -52,3 +52,19 @@ create table KH_CheckOut(
 
 
 select * from KH_CheckOut
+
+
+create table employee(
+	ID int identity primary key,
+	TenNV nvarchar(50) not null,
+	Age varchar(10),
+	gender nvarchar(10),
+	job nvarchar(50),
+	Luong varchar(50),
+	phone varchar(11),
+	Diachi nvarchar(50),
+)
+
+
+select * from employee
+
