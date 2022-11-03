@@ -92,7 +92,6 @@ public class AllRoomFrame extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jButton1.setText("Thêm phòng mới");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.lightGray));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -102,7 +101,6 @@ public class AllRoomFrame extends javax.swing.JFrame {
 
         btnEditRoom.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         btnEditRoom.setText("Sửa phòng");
-        btnEditRoom.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.lightGray));
         btnEditRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditRoomActionPerformed(evt);
