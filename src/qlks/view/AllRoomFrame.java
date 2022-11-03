@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import qlks.dao.JDBCconnection;
 import qlks.service.AllRoomService;
 import qlks.modal.AllRoom;
 
@@ -25,12 +26,29 @@ public class AllRoomFrame extends javax.swing.JFrame {
     /**
      * Creates new form AllRoomFrame
      */
+    private java.sql.Connection connection;
+
+    public java.sql.Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(java.sql.Connection conn) {
+        this.connection = conn;
+    }
+
+    public java.sql.Connection getConnect() throws ClassNotFoundException, SQLException {
+        Class.forName(JDBCconnection.driverName);
+        connection = DriverManager.getConnection(JDBCconnection.dbURL, JDBCconnection.dbUser, JDBCconnection.dbPass);
+        System.out.println("CONNECTTED!");
+        return connection;
+    }
+
     public AllRoomFrame() throws ClassNotFoundException, SQLException {
         initComponents();
 
         allRoomService = new AllRoomService();
 
-        defaultTableModel = new DefaultTableModel(){
+        defaultTableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -52,7 +70,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
             defaultTableModel.addRow(new Object[]{allRoom.getMaPhong(), allRoom.getTinhTrang(), allRoom.getBedType(), allRoom.getCleanStatus(), allRoom.getGia()});
         }
     }
- 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,6 +85,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnEditRoom = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản Lý KS - Tất cả các phòng ");
@@ -88,7 +107,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
         tableRooms.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tableRooms);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 134, 861, 303));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 134, 970, 303));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jButton1.setText("Thêm phòng mới");
@@ -114,7 +133,15 @@ public class AllRoomFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(821, 6, 34, 34));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 34, 34));
+
+        jButton3.setText("Xóa Phòng");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 73, 140, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,7 +157,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
         int row = tableRooms.getSelectedRow();
         if (row == -1) {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn phòng muốn thao tác");
-        }else {
+        } else {
             String MP = String.valueOf(tableRooms.getValueAt(row, 0));
             
             try {
@@ -147,6 +174,51 @@ public class AllRoomFrame extends javax.swing.JFrame {
         this.dispose();
         new MainUserFrame().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+
+        int row = tableRooms.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn phòng muốn thao tác");
+        } else {
+            
+            int confirm = JOptionPane.showConfirmDialog(AllRoomFrame.this, "Bạn có chắc chắn muốn xóa không?");
+            if (confirm == JOptionPane.YES_OPTION) {
+                String MP = String.valueOf(tableRooms.getValueAt(row, 0));
+                String status = String.valueOf(tableRooms.getValueAt(row, 1));
+                if (status.equals("Trống")) {
+                    try {
+                        connection = getConnect();
+
+                        String sql = "delete from Loai_Phong where MaPhong = N'" + MP + "'";
+
+                        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+                        int rs = preparedStatement.executeUpdate();
+
+                        JOptionPane.showMessageDialog(null, "Xóa phòng thành công");
+//                    userService.deleteUser(userId);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    defaultTableModel.setRowCount(0);
+                    try {
+                        setTableDataRoom(allRoomService.getAllRooms());
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }else {
+                    JOptionPane.showMessageDialog(null, "Phòng đang được thuê !! Không được phép thao tác");
+                }
+
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +265,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnEditRoom;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableRooms;
     // End of variables declaration//GEN-END:variables
