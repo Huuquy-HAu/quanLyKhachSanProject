@@ -91,6 +91,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản Lý Khách Sạn - Quản Lý Nhân Viên");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAdd.setBackground(new java.awt.Color(242, 242, 242));

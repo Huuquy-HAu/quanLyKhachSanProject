@@ -89,6 +89,7 @@ public class EditUserFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản Lý Khách Sạn - Sửa Thông Tin Khách Hàng");
         setMinimumSize(new java.awt.Dimension(9, 7));
         setPreferredSize(new java.awt.Dimension(960, 515));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

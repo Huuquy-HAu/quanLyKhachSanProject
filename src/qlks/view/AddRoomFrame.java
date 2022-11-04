@@ -69,7 +69,7 @@ public class AddRoomFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(0, 0));
+        setTitle("Quản Lý Khách Sạn - Trang Thêm Phòng");
         setPreferredSize(new java.awt.Dimension(612, 435));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -79,7 +79,6 @@ public class AddRoomFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, 45));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Mã Phòng");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 90, 25));
 
@@ -92,7 +91,6 @@ public class AddRoomFrame extends javax.swing.JFrame {
         getContentPane().add(inputMP, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 167, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tình trạng");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 90, 26));
 
@@ -106,7 +104,6 @@ public class AddRoomFrame extends javax.swing.JFrame {
         getContentPane().add(inputStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 167, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Vệ sinh");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 90, 29));
 
@@ -115,7 +112,6 @@ public class AddRoomFrame extends javax.swing.JFrame {
         getContentPane().add(inputClean, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 167, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Loại giường");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
@@ -124,7 +120,6 @@ public class AddRoomFrame extends javax.swing.JFrame {
         getContentPane().add(inputBedType, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 167, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Giá");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 37, -1));
 

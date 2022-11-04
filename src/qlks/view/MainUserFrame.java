@@ -39,6 +39,7 @@ public class MainUserFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản Lý Khách Sạn - Trang chủ ");
         setBounds(new java.awt.Rectangle(200, 250, 1000, 600));
         setSize(new java.awt.Dimension(1000, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,7 +77,12 @@ public class MainUserFrame extends javax.swing.JFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 174, 36));
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton5.setText("Tìm phòng");
+        jButton5.setText("Thống kê");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, 174, 31));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -134,6 +140,18 @@ public class MainUserFrame extends javax.swing.JFrame {
         }
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            // TODO add your handling code here:
+            new CheckOutFrame().setVisible(true);
+            this.dispose();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

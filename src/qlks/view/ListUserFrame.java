@@ -99,6 +99,7 @@ public class ListUserFrame extends javax.swing.JFrame {
         btnCheckOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản Lý Khách Sạn - Quản Lý Thuê Phòng");
         setBackground(new java.awt.Color(255, 255, 255));
         setSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,7 +121,7 @@ public class ListUserFrame extends javax.swing.JFrame {
         userTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(userTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 773, 405));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 850, 405));
 
         jLabel1.setBackground(new java.awt.Color(102, 153, 0));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -132,6 +133,7 @@ public class ListUserFrame extends javax.swing.JFrame {
 
         addButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/Actions-contact-new-icon (1).png"))); // NOI18N
+        addButton.setText("Thêm Khách Hàng");
         addButton.setMaximumSize(new java.awt.Dimension(262, 263));
         addButton.setMinimumSize(new java.awt.Dimension(262, 263));
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -139,16 +141,17 @@ public class ListUserFrame extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 64, -1));
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, 50));
 
         editButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/edit-file-icon.png"))); // NOI18N
+        editButton.setText("Sửa Thông Tin");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 64, 55));
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 160, 50));
 
         exitButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
@@ -161,14 +164,16 @@ public class ListUserFrame extends javax.swing.JFrame {
 
         deleteButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/Actions-view-sort-ascending-icon.png"))); // NOI18N
+        deleteButton.setText("Xóa thông tin");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 64, -1));
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 180, 50));
 
         btnCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/icons8-checkmark-64.png"))); // NOI18N
+        btnCheckOut.setText("Check Out");
         btnCheckOut.setMinimumSize(new java.awt.Dimension(0, 0));
         btnCheckOut.setPreferredSize(new java.awt.Dimension(54, 54));
         btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +181,7 @@ public class ListUserFrame extends javax.swing.JFrame {
                 btnCheckOutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 64, -1));
+        getContentPane().add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 170, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -268,7 +273,7 @@ public class ListUserFrame extends javax.swing.JFrame {
                     user = userService.getUserById(userId);
                     
                     connection = getConnect();
-                    String sql = "insert into KH_CheckOut values(N'" + user.getName() + "',N'" + user.getAddress() + "',N'" + user.getPhone() + "',N'" + user.getGioiTinh() + "','" + user.getRoom() + "')" + " update Loai_Phong set tinhTrang = N'Trống', cleanStatus = N'Bẩn' where MaPhong =N'" + user.getRoom() + "'" + "delete from Khach_Hang where id = '" + userId + "'";
+                    String sql = "insert into KH_CheckOut values(N'" + user.getName() + "',N'" + user.getAddress() + "',N'" + user.getPhone() + "',N'" + user.getGioiTinh() + "',N'" + user.getRoom() + "')" + " update Loai_Phong set tinhTrang = N'Trống', cleanStatus = N'Chưa vệ sinh' where MaPhong =N'" + user.getRoom() + "'" + "delete from Khach_Hang where ID = '" + userId + "'";
 
                     PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -278,6 +283,14 @@ public class ListUserFrame extends javax.swing.JFrame {
                 } catch (Exception e) {
                 }
 
+                defaultTableModel.setRowCount(0);
+                try {
+                    setTableData(userService.getAllUsers());
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         }

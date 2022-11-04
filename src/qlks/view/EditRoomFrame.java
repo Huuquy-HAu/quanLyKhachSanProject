@@ -85,6 +85,7 @@ public class EditRoomFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản Lý Khách Sạn - Chỉnh sửa thông tin phòng");
         setPreferredSize(new java.awt.Dimension(1000, 540));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

@@ -69,6 +69,7 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản Lý Khách Sạn - Thêm Nhân Viên");
         setMinimumSize(new java.awt.Dimension(9, 5));
         setPreferredSize(new java.awt.Dimension(980, 568));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

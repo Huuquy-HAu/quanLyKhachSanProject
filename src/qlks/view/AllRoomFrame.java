@@ -159,11 +159,18 @@ public class AllRoomFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn phòng muốn thao tác");
         } else {
             String MP = String.valueOf(tableRooms.getValueAt(row, 0));
-            
-            try {
-                new EditRoomFrame(MP).setVisible(true);
-                this.dispose();
-            } catch (Exception e) {
+            String status = String.valueOf(tableRooms.getValueAt(row, 1));
+
+            if (status.equals("Trống")) {
+
+                try {
+                    new EditRoomFrame(MP).setVisible(true);
+                    this.dispose();
+                } catch (Exception e) {
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Phòng đang được thuê !! Không được phép thao tác");
             }
         }
 
@@ -182,7 +189,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
         if (row == -1) {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn phòng muốn thao tác");
         } else {
-            
+
             int confirm = JOptionPane.showConfirmDialog(AllRoomFrame.this, "Bạn có chắc chắn muốn xóa không?");
             if (confirm == JOptionPane.YES_OPTION) {
                 String MP = String.valueOf(tableRooms.getValueAt(row, 0));
@@ -212,7 +219,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
                     } catch (SQLException ex) {
                         Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }else {
+                } else {
                     JOptionPane.showMessageDialog(null, "Phòng đang được thuê !! Không được phép thao tác");
                 }
 
