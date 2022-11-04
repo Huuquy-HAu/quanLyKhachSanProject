@@ -96,55 +96,55 @@ public class EditRoomFrame extends javax.swing.JFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, 36));
 
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Mã Phòng");
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 85, -1));
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 90, -1));
 
         inputMP.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         inputMP.setEnabled(false);
         getContentPane().add(inputMP, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 167, -1));
 
-        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tình trạng");
         jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
+        jLabel3.setOpaque(true);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 90, -1));
 
         inputStatus.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         inputStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trống", "Đang thuê" }));
         getContentPane().add(inputStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 167, -1));
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Vệ sinh");
         jLabel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 62, -1));
+        jLabel4.setOpaque(true);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 90, -1));
 
         inputCleanStatus.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         inputCleanStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đã vệ sinh", "Chưa vệ sinh" }));
         getContentPane().add(inputCleanStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 167, -1));
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Loại giường");
         jLabel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jLabel5.setOpaque(true);
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
 
         inputBedtype.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         inputBedtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Giường đơn", "Giường đôi" }));
         getContentPane().add(inputBedtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 167, -1));
 
-        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Giá");
         jLabel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jLabel6.setOpaque(true);
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 76, -1));
 
         inputPrice.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -165,7 +165,7 @@ public class EditRoomFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 6, 34, 36));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, 34, 36));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/226441293_20210122155341.jpeg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -110, -1, -1));

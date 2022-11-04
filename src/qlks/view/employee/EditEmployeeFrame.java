@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import qlks.dao.JDBCconnection;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import qlks.modal.Employee;
 import qlks.service.EmployeeService;
@@ -84,6 +86,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         inputPhone = new javax.swing.JTextField();
         inputAddr = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,9 +99,9 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 250, 36));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ID");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 96, 65, -1));
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 96, 90, -1));
 
         inputID.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         inputID.setEnabled(false);
@@ -107,12 +110,12 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
                 inputIDActionPerformed(evt);
             }
         });
-        getContentPane().add(inputID, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 93, 91, -1));
+        getContentPane().add(inputID, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 93, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tên");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 136, 37, -1));
+        jLabel3.setOpaque(true);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 136, 90, -1));
 
         inputName.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         inputName.addActionListener(new java.awt.event.ActionListener() {
@@ -123,41 +126,43 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         getContentPane().add(inputName, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 133, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Tuổi");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 176, 37, -1));
+        jLabel4.setOpaque(true);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 176, 90, -1));
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Giới tính");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 216, 65, -1));
+        jLabel5.setOpaque(true);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 216, 90, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Chức vụ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 256, -1, -1));
+        jLabel6.setOpaque(true);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 256, 90, -1));
 
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Lương");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 296, 53, -1));
+        jLabel7.setOpaque(true);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 296, 90, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Số điện thoại");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 336, -1, -1));
+        jLabel8.setOpaque(true);
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 336, 90, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Địa chỉ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 376, 60, -1));
+        jLabel9.setOpaque(true);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 376, 90, -1));
 
         inputAge.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         getContentPane().add(inputAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 173, 160, -1));
 
         inputGender.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         inputGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
-        getContentPane().add(inputGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 213, 106, -1));
+        getContentPane().add(inputGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 213, 160, -1));
 
         inputJob.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         inputJob.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quản lý", "Lễ tân", "Bồi bàn", "Bếp trưởng", "Bếp phó", "Phụ bếp", "Phục vụ phòng", "Dọn phòng", "Bảo vệ" }));
@@ -181,8 +186,16 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         });
         getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 434, 98, -1));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 40, 40));
+
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/4909.jpg_wh860.jpg"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 850, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -220,6 +233,18 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        try {
+            new EmployeeFrame().setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EditEmployeeFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditEmployeeFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -234,6 +259,7 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
     private javax.swing.JTextField inputLuong;
     private javax.swing.JTextField inputName;
     private javax.swing.JTextField inputPhone;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

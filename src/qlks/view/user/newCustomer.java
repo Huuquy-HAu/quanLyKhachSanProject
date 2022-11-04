@@ -142,7 +142,7 @@ public class newCustomer extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 40));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 40, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/istockphoto-1192128830-612x612.jpeg"))); // NOI18N
         jLabel7.setText("jLabel7");

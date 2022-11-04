@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import qlks.dao.JDBCconnection;
 import qlks.modal.Employee;
 import qlks.service.EmployeeService;
+import qlks.view.login.MainUserFrame;
 
 public class EmployeeFrame extends javax.swing.JFrame {
 
@@ -89,6 +90,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
         employeeTable = new javax.swing.JTable();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản Lý Khách Sạn - Quản Lý Nhân Viên");
@@ -118,6 +120,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
             }
         ));
         employeeTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        employeeTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(employeeTable);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 777, 260));
@@ -143,6 +146,14 @@ public class EmployeeFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 56, 140, 34));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 40, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,6 +214,12 @@ public class EmployeeFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new MainUserFrame().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +266,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JTable employeeTable;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

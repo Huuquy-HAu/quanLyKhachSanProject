@@ -14,6 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import qlks.dao.JDBCconnection;
+import qlks.view.room.AddRoomFrame;
+import qlks.view.room.AllRoomFrame;
 
 public class AddEmployeeFrame extends javax.swing.JFrame {
 
@@ -68,6 +70,7 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
         inputAddr = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản Lý Khách Sạn - Thêm Nhân Viên");
@@ -141,6 +144,14 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/how-to-effectively-manage-your-hotel-staff.jpeg"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 0, 750, -1));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 0, 40, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -177,6 +188,18 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        try {
+            new EmployeeFrame().setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddEmployeeFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddEmployeeFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,6 +246,7 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
     private javax.swing.JTextField inputLuong;
     private javax.swing.JTextField inputName;
     private javax.swing.JTextField inputPhone;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

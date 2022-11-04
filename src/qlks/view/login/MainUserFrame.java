@@ -4,9 +4,15 @@
  */
 package qlks.view.login;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Timer;
 import qlks.view.room.AllRoomFrame;
 import qlks.view.user.CheckOutFrame;
 import qlks.view.employee.EmployeeFrame;
@@ -22,8 +28,26 @@ public class MainUserFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainUserFrame
      */
+    Timer timer;
     public MainUserFrame() {
         initComponents();
+        ActionListener actionlistener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date date = new Date();
+                DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+                String time = timeFormat.format(date);
+                clock.setText(time);
+                
+                Date date1 = new Date();
+                DateFormat timeFormat1 = new SimpleDateFormat("dd/MM/yyyy");
+                String time1 = timeFormat1.format(date1);
+                clock1.setText(time1);
+            }
+        };
+        timer = new Timer(1000, actionlistener);
+        timer.setInitialDelay(10);
+        timer.start();
     }
 
     /**
@@ -41,6 +65,8 @@ public class MainUserFrame extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        clock1 = new javax.swing.JLabel();
+        clock = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,8 +125,19 @@ public class MainUserFrame extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 450, -1, 32));
 
+        clock1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        clock1.setForeground(new java.awt.Color(255, 255, 255));
+        clock1.setText("dd:mm:yyyy");
+        getContentPane().add(clock1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 170, 40));
+
+        clock.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        clock.setForeground(new java.awt.Color(255, 255, 255));
+        clock.setText("hh:mm:ss");
+        getContentPane().add(clock, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 180, 40));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/outdoor-pool.jpeg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -230, -1, -1));
+        jLabel2.setToolTipText("");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -240, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,6 +231,8 @@ public class MainUserFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel clock;
+    private javax.swing.JLabel clock1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

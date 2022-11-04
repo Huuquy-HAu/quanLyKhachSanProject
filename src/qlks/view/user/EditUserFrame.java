@@ -172,7 +172,7 @@ public class EditUserFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(899, 6, 45, 44));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 45, 44));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/aid9726192-v4-728px-Collect-Customer-Information-Step-18-Version-2.jpeg"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 500, 330));
