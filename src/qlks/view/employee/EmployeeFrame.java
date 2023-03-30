@@ -89,6 +89,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
         employeeTable = new javax.swing.JTable();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản Lý Khách Sạn - Quản Lý Nhân Viên");
@@ -103,7 +104,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
                 btnAddActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 56, -1, 34));
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, 34));
 
         employeeTable.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         employeeTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,7 +121,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
         employeeTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(employeeTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 777, 260));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 777, 260));
 
         btnEdit.setBackground(new java.awt.Color(242, 242, 242));
         btnEdit.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -131,7 +132,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
                 btnEditActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 56, 140, 34));
+        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 150, 34));
 
         btnDelete.setBackground(new java.awt.Color(242, 242, 242));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -142,7 +143,10 @@ public class EmployeeFrame extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 56, 140, 34));
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 140, 34));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/R.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 10, -1, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,6 +253,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JTable employeeTable;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

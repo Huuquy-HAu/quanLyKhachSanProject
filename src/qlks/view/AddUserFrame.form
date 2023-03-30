@@ -48,7 +48,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="statusComboBox" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
                       <Component id="submitButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
@@ -135,7 +135,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Th&#xea;m m&#x1edb;i user"/>
+        <Property name="text" type="java.lang.String" value="Th&#xea;m Kh&#xe1;ch H&#xe0;ng"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">

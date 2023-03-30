@@ -64,19 +64,20 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý khách sạn - Đăng Nhập");
+        setBackground(new java.awt.Color(255, 255, 255));
         setBounds(new java.awt.Rectangle(500, 250, 0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel1.setText("Username");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 89, -1));
+        jLabel1.setText("Tài Khoản");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 89, -1));
 
         inputUserName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        getContentPane().add(inputUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 224, -1));
+        getContentPane().add(inputUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 224, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 77, -1));
+        jLabel2.setText("Mật khẩu");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 77, -1));
 
         inputPassWord.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         inputPassWord.addActionListener(new java.awt.event.ActionListener() {
@@ -84,11 +85,11 @@ public class Login extends javax.swing.JFrame {
                 inputPassWordActionPerformed(evt);
             }
         });
-        getContentPane().add(inputPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 224, -1));
+        getContentPane().add(inputPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 224, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel3.setText("Trang đăng nhập hệ thống");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 260, 48));
+        jLabel3.setText("Đăng Nhập");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 120, 48));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -99,10 +100,11 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 115, 35));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 115, 35));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/movieposter.jpeg"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/OIP.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 450, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

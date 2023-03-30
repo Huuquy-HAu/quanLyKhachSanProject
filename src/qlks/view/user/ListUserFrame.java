@@ -96,9 +96,7 @@ public class ListUserFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        btnCheckOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản Lý Khách Sạn - Quản Lý Thuê Phòng");
@@ -127,11 +125,11 @@ public class ListUserFrame extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(102, 153, 0));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel1.setText("Quản lý đặt phòng khách sạn");
+        jLabel1.setText(" Đặt phòng khách sạn");
         jLabel1.setToolTipText("");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 290, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 290, -1));
 
         addButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/Actions-contact-new-icon (1).png"))); // NOI18N
@@ -143,7 +141,7 @@ public class ListUserFrame extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, 50));
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 100, 180, 50));
 
         editButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/edit-file-icon.png"))); // NOI18N
@@ -153,16 +151,7 @@ public class ListUserFrame extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 160, 50));
-
-        exitButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(715, 6, 64, -1));
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 160, 50));
 
         deleteButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/Actions-view-sort-ascending-icon.png"))); // NOI18N
@@ -172,27 +161,10 @@ public class ListUserFrame extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 180, 50));
-
-        btnCheckOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/icons8-checkmark-64.png"))); // NOI18N
-        btnCheckOut.setText("Check Out");
-        btnCheckOut.setMinimumSize(new java.awt.Dimension(0, 0));
-        btnCheckOut.setPreferredSize(new java.awt.Dimension(54, 54));
-        btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckOutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 170, 50));
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        new MainUserFrame().setVisible(true);
-    }//GEN-LAST:event_exitButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
@@ -258,46 +230,6 @@ public class ListUserFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editButtonActionPerformed
 
-    private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
-        // TODO add your handling code here:
-
-        int row = userTable.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(ListUserFrame.this, "Vui lòng chọn người dùng muốn Check Out", "Loi", JOptionPane.ERROR_MESSAGE);
-        } else {
-            int userId = Integer.valueOf(String.valueOf(userTable.getValueAt(row, 0)));
-            int confirm = JOptionPane.showConfirmDialog(ListUserFrame.this, "Bạn có chắc chắn muốn Check Out Không?");
-            if (confirm == JOptionPane.YES_OPTION) {
-
-                try {
-                    user = new User();
-                    userService = new UserService();
-                    user = userService.getUserById(userId);
-                    
-                    connection = getConnect();
-                    String sql = "insert into KH_CheckOut values(N'" + user.getName() + "',N'" + user.getAddress() + "',N'" + user.getPhone() + "',N'" + user.getGioiTinh() + "',N'" + user.getRoom() + "')" + " update Loai_Phong set tinhTrang = N'Trống', cleanStatus = N'Chưa vệ sinh' where MaPhong =N'" + user.getRoom() + "'" + "delete from Khach_Hang where ID = '" + userId + "'";
-
-                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-                    int rs = preparedStatement.executeUpdate();
-
-                    JOptionPane.showMessageDialog(null, "Check Out thành công");
-                } catch (Exception e) {
-                }
-
-                defaultTableModel.setRowCount(0);
-                try {
-                    setTableData(userService.getAllUsers());
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex) {
-                    Logger.getLogger(ListUserFrame.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-
-        }
-    }//GEN-LAST:event_btnCheckOutActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -339,10 +271,8 @@ public class ListUserFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
-    private javax.swing.JButton btnCheckOut;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
-    private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable userTable;

@@ -66,7 +66,6 @@ public class newCustomer extends javax.swing.JFrame {
         inputGender = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,17 +135,9 @@ public class newCustomer extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 368, 100, 36));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 40));
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/istockphoto-1192128830-612x612.jpeg"))); // NOI18N
         jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 480, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 480, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,12 +206,6 @@ public class newCustomer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        new MainUserFrame().setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -263,7 +248,6 @@ public class newCustomer extends javax.swing.JFrame {
     private javax.swing.JTextField inputPhone;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

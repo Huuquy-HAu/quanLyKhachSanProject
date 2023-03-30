@@ -118,7 +118,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 69, 149, 34));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 149, 34));
 
         btnEditRoom.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         btnEditRoom.setText("Sửa phòng");
@@ -127,7 +127,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
                 btnEditRoomActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 69, 150, 34));
+        getContentPane().add(btnEditRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 150, 34));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlks/img/delete-1-icon.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +135,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 34, 34));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, 34, 34));
 
         jButton3.setText("Xóa Phòng");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +143,7 @@ public class AllRoomFrame extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 73, 140, 30));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 140, 34));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
